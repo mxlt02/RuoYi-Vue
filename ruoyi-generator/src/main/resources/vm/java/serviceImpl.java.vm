@@ -71,6 +71,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper,${Cl
 #foreach ($column in $columns)
 #if($column.javaField == 'createTime')
         ${className}.setCreateTime(DateUtils.getNowDate());
+        ${className}.setCreateBy(SecurityUtils.getUsername());
 #end
 #end
 #if($table.sub)
@@ -97,6 +98,7 @@ public class ${ClassName}ServiceImpl extends ServiceImpl<${ClassName}Mapper,${Cl
 #foreach ($column in $columns)
 #if($column.javaField == 'updateTime')
         ${className}.setUpdateTime(DateUtils.getNowDate());
+        ${className}.setUpdateBy(SecurityUtils.getUsername());
 #end
 #end
 #if($table.sub)
